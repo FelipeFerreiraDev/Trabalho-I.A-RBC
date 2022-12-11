@@ -1,25 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-
+import './styles/global.css';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { Home } from './view/home';
+import { Casos } from './view/casos';
+import { LerArquivo } from './view/lerArquivo';
 
 const router = createBrowserRouter([
   {
-    path: "/",
-      element: <Home/>,
+    path: "/casos",
+      element: <Casos/>,
   },
   {
     path: "/",
-      element: <Home/>,
+      element: <LerArquivo/>,
   },
-  {
-    path: "/",
-      element: <Home/>,
-  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
