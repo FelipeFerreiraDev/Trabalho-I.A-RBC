@@ -1,0 +1,331 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Cases {
+  case    Int     @default(autoincrement()) @id
+  desc_doenca String
+  area_damaged Area_damaged[]
+  canker_lesion Canker_lesion[]
+  crop_hist Crop_hist[]
+  date Date[]
+  external_decay External_decay[]
+  fruits_spots Fruits_spots[]
+  fruiting_bodies Fruiting_bodies[]
+  fruit_pods Fruit_pods[]
+  germination Germination[]
+  hail Hail[]
+  int_discolor Int_discolor[]
+  leaf_malf Leaf_malf[]
+  leaf_mild Leaf_mild[]
+  leaf_shread Leaf_shread[]
+  leafspots_halo Leafspots_halo[]
+  leafspots_size Leafspots_size[]
+  leafspots_marg Leafspots_marg[]
+  leaves Leaves[]
+  lodging Lodging[]
+  mold_growth Mold_growth[]
+  mycelium Mycelium[]
+  plant_growth Plant_growth[]
+  plant_stand Plant_stand[]
+  precip Precip[]
+  roots Roots[]
+  sclerotia Sclerotia[]
+  seed Seed[]
+  seed_discolor Seed_discolor[]
+  seed_size Seed_size[]
+  seed_tmt Seed_tmt[]
+  severity Severity[]
+  shriveling Shriveling[]
+  stem Stem[]
+  stem_cankers Stem_cankers[]
+  temp Temp[]
+}
+
+model Area_damaged {
+  id Int @default(autoincrement()) @id
+  area_damaged String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Canker_lesion {
+  id Int @default(autoincrement()) @id
+  canker_lesion String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Crop_hist {
+  id Int @default(autoincrement()) @id
+  crop_hist String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Date {
+  id Int @default(autoincrement()) @id
+  date String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model External_decay {
+  id Int @default(autoincrement()) @id
+  external_decay String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Fruits_spots {
+  id Int @default(autoincrement()) @id
+  fruits_spots String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Fruiting_bodies {
+  id Int @default(autoincrement()) @id
+  fruiting_bodies String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Fruit_pods {
+  id Int @default(autoincrement()) @id
+  fruit_pods String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Germination {
+  id Int @default(autoincrement()) @id
+  germination String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Hail {
+  id Int @default(autoincrement()) @id
+  hail String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Int_discolor {
+  id Int @default(autoincrement()) @id
+  int_discolor String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Leaf_malf {
+  id Int @default(autoincrement()) @id
+  leaf_malf String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Leaf_mild {
+  id Int @default(autoincrement()) @id
+  leaf_mild String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Leaf_shread {
+  id Int @default(autoincrement()) @id
+  leaf_shread String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Leafspots_halo {
+  id Int @default(autoincrement()) @id
+  leafspots_halo String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Leafspots_size {
+  id Int @default(autoincrement()) @id
+  leafspots_size String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Leafspots_marg {
+  id Int @default(autoincrement()) @id
+  leafspots_marg String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Leaves {
+  id Int @default(autoincrement()) @id
+  leaves String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Lodging {
+  id Int @default(autoincrement()) @id
+  lodging String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Mold_growth {
+  id Int @default(autoincrement()) @id
+  mold_growth String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Mycelium {
+  id Int @default(autoincrement()) @id
+  mycelium String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Plant_growth {
+  id Int @default(autoincrement()) @id
+  plant_growth String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Plant_stand {
+  id Int @default(autoincrement()) @id
+  plant_stand String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Precip {
+  id Int @default(autoincrement()) @id
+  precip String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Roots {
+  id Int @default(autoincrement()) @id
+  roots String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Sclerotia {
+  id Int @default(autoincrement()) @id
+  sclerotia String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Seed {
+  id Int @default(autoincrement()) @id
+  seed String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Seed_discolor {
+  id Int @default(autoincrement()) @id
+  seed_discolor String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Seed_size {
+  id Int @default(autoincrement()) @id
+  seed_size String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Seed_tmt {
+  id Int @default(autoincrement()) @id
+  seed_tmt String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Severity {
+  id Int @default(autoincrement()) @id
+  severity String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Shriveling {
+  id Int @default(autoincrement()) @id
+  shriveling String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Stem {
+  id Int @default(autoincrement()) @id
+  stem String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Stem_cankers {
+  id Int @default(autoincrement()) @id
+  stem_cankers String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
+
+model Temp {
+  id Int @default(autoincrement()) @id
+  temp String
+  peso Int
+  caso Cases? @relation(fields: [casoId], references: [case])
+  casoId Int?
+}
