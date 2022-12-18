@@ -13,319 +13,284 @@ datasource db {
 model Cases {
   case    Int     @default(autoincrement()) @id
   desc_doenca String
-  area_damaged Area_damaged[]
-  canker_lesion Canker_lesion[]
-  crop_hist Crop_hist[]
-  date Date[]
-  external_decay External_decay[]
-  fruits_spots Fruits_spots[]
-  fruiting_bodies Fruiting_bodies[]
-  fruit_pods Fruit_pods[]
-  germination Germination[]
-  hail Hail[]
-  int_discolor Int_discolor[]
-  leaf_malf Leaf_malf[]
-  leaf_mild Leaf_mild[]
-  leaf_shread Leaf_shread[]
-  leafspots_halo Leafspots_halo[]
-  leafspots_size Leafspots_size[]
-  leafspots_marg Leafspots_marg[]
-  leaves Leaves[]
-  lodging Lodging[]
-  mold_growth Mold_growth[]
-  mycelium Mycelium[]
-  plant_growth Plant_growth[]
-  plant_stand Plant_stand[]
-  precip Precip[]
-  roots Roots[]
-  sclerotia Sclerotia[]
-  seed Seed[]
-  seed_discolor Seed_discolor[]
-  seed_size Seed_size[]
-  seed_tmt Seed_tmt[]
-  severity Severity[]
-  shriveling Shriveling[]
-  stem Stem[]
-  stem_cankers Stem_cankers[]
-  temp Temp[]
+  area Area_damaged? @relation(fields: [area_damaged], references: [area_damaged])
+  area_damaged String?
+  canker Canker_lesion? @relation(fields: [canker_lesion], references: [canker_lesion])
+  canker_lesion String?
+  crop Crop_hist? @relation(fields: [crop_hist], references: [crop_hist])
+  crop_hist String?
+  date_new Date? @relation(fields: [date], references: [date])
+  date String?
+  external External_decay? @relation(fields: [external_decay], references: [external_decay])
+  external_decay String?
+  fruits Fruits_spots? @relation(fields: [fruits_spots], references: [fruits_spots])
+  fruits_spots String?
+  fruiting Fruiting_bodies? @relation(fields: [fruiting_bodies], references: [fruiting_bodies])
+  fruiting_bodies String?
+  fruitpod Fruit_pods? @relation(fields: [fruit_pods], references: [fruit_pods])
+  fruit_pods String?
+  germination_new Germination? @relation(fields: [germination], references: [germination])
+  germination String?
+  hail_new Hail? @relation(fields: [hail], references: [hail])
+  hail String?
+  intdiscolor Int_discolor? @relation(fields: [int_discolor], references: [int_discolor])
+  int_discolor String?
+  leafmalf Leaf_malf? @relation(fields: [leaf_malf], references: [leaf_malf])
+  leaf_malf String?
+  leafmild Leaf_mild? @relation(fields: [leaf_mild], references: [leaf_mild])
+  leaf_mild String?
+  leafshread Leaf_shread? @relation(fields: [leaf_shread], references: [leaf_shread])
+  leaf_shread String?
+  leafspotshalo Leafspots_halo? @relation(fields: [leafspots_halo], references: [leafspots_halo])
+  leafspots_halo String?
+  leafspotssize Leafspots_size? @relation(fields: [leafspots_size], references: [leafspots_size])
+  leafspots_size String?
+  leafspotsmarg Leafspots_marg? @relation(fields: [leafspots_marg], references: [leafspots_marg])
+  leafspots_marg String?
+  leaves_new Leaves? @relation(fields: [leaves], references: [leaves])
+  leaves String?
+  lodging_new Lodging? @relation(fields: [lodging], references: [lodging])
+  lodging String?
+  mold Mold_growth? @relation(fields: [mold_growth], references: [mold_growth])
+  mold_growth String?
+  mycelium_new Mycelium? @relation(fields: [mycelium], references: [mycelium])
+  mycelium String?
+  plant Plant_growth? @relation(fields: [plant_growth], references: [plant_growth])
+  plant_growth String?
+  plantstand Plant_stand? @relation(fields: [plant_stand], references: [plant_stand])
+  plant_stand String?
+  precip_new Precip? @relation(fields: [precip], references: [precip])
+  precip String?
+  roots_new Roots? @relation(fields: [roots], references: [roots])
+  roots String?
+  sclerotia_new Sclerotia? @relation(fields: [sclerotia], references: [sclerotia])
+  sclerotia String?
+  seed_new Seed? @relation(fields: [seed], references: [seed])
+  seed String?
+  seeddiscolor Seed_discolor? @relation(fields: [seed_discolor], references: [seed_discolor])
+  seed_discolor String?
+  seedsize Seed_size? @relation(fields: [seed_size], references: [seed_size])
+  seed_size String?
+  seedtmt Seed_tmt? @relation(fields: [seed_tmt], references: [seed_tmt])
+  seed_tmt String?
+  severity_new Severity? @relation(fields: [severity], references: [severity])
+  severity String?
+  shriveling_new Shriveling? @relation(fields: [shriveling], references: [shriveling])
+  shriveling String?
+  stem_new Stem? @relation(fields: [stem], references: [stem])
+  stem String?
+  stemcankers Stem_cankers? @relation(fields: [stem_cankers], references: [stem_cankers])
+  stem_cankers String?
+  temp_new Temp? @relation(fields: [temp], references: [temp])
+  temp String?
 }
 
 model Area_damaged {
-  id Int @default(autoincrement()) @id
-  area_damaged String
+  area_damaged String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Canker_lesion {
-  id Int @default(autoincrement()) @id
-  canker_lesion String
+  canker_lesion String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Crop_hist {
-  id Int @default(autoincrement()) @id
-  crop_hist String
+  crop_hist String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Date {
-  id Int @default(autoincrement()) @id
-  date String
+  date String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model External_decay {
-  id Int @default(autoincrement()) @id
-  external_decay String
+  external_decay String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Fruits_spots {
-  id Int @default(autoincrement()) @id
-  fruits_spots String
+  fruits_spots String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Fruiting_bodies {
-  id Int @default(autoincrement()) @id
-  fruiting_bodies String
+  fruiting_bodies String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Fruit_pods {
-  id Int @default(autoincrement()) @id
-  fruit_pods String
+  fruit_pods String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Germination {
-  id Int @default(autoincrement()) @id
-  germination String
+  germination String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Hail {
-  id Int @default(autoincrement()) @id
-  hail String
+  hail String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Int_discolor {
-  id Int @default(autoincrement()) @id
-  int_discolor String
+  int_discolor String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Leaf_malf {
-  id Int @default(autoincrement()) @id
-  leaf_malf String
+  leaf_malf String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Leaf_mild {
-  id Int @default(autoincrement()) @id
-  leaf_mild String
+  leaf_mild String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Leaf_shread {
-  id Int @default(autoincrement()) @id
-  leaf_shread String
+  leaf_shread String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Leafspots_halo {
-  id Int @default(autoincrement()) @id
-  leafspots_halo String
+  leafspots_halo String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Leafspots_size {
-  id Int @default(autoincrement()) @id
-  leafspots_size String
+  leafspots_size String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Leafspots_marg {
-  id Int @default(autoincrement()) @id
-  leafspots_marg String
+  leafspots_marg String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Leaves {
-  id Int @default(autoincrement()) @id
-  leaves String
+  leaves String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Lodging {
-  id Int @default(autoincrement()) @id
-  lodging String
+  lodging String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Mold_growth {
-  id Int @default(autoincrement()) @id
-  mold_growth String
+  mold_growth String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Mycelium {
-  id Int @default(autoincrement()) @id
-  mycelium String
+  mycelium String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Plant_growth {
-  id Int @default(autoincrement()) @id
-  plant_growth String
+  plant_growth String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Plant_stand {
-  id Int @default(autoincrement()) @id
-  plant_stand String
+  plant_stand String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Precip {
-  id Int @default(autoincrement()) @id
-  precip String
+  precip String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Roots {
-  id Int @default(autoincrement()) @id
-  roots String
+  roots String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Sclerotia {
-  id Int @default(autoincrement()) @id
-  sclerotia String
+  sclerotia String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Seed {
-  id Int @default(autoincrement()) @id
-  seed String
+  seed String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Seed_discolor {
-  id Int @default(autoincrement()) @id
-  seed_discolor String
+  seed_discolor String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Seed_size {
-  id Int @default(autoincrement()) @id
-  seed_size String
+  seed_size String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Seed_tmt {
-  id Int @default(autoincrement()) @id
-  seed_tmt String
+  seed_tmt String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Severity {
-  id Int @default(autoincrement()) @id
-  severity String
+  severity String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Shriveling {
-  id Int @default(autoincrement()) @id
-  shriveling String
+  shriveling String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Stem {
-  id Int @default(autoincrement()) @id
-  stem String
+  stem String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Stem_cankers {
-  id Int @default(autoincrement()) @id
-  stem_cankers String
+  stem_cankers String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
 
 model Temp {
-  id Int @default(autoincrement()) @id
-  temp String
+  temp String @id
   peso Int
-  caso Cases? @relation(fields: [casoId], references: [case])
-  casoId Int?
+  casos Cases[]
 }
