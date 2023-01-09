@@ -3,7 +3,7 @@ export function Candidatos() {
     <section className="grid justify-center">
       <h1 >Lista de Casos Candidatos</h1>
       <div className="h-screen">
-        <h3>CRF: </h3>
+        <h3>CNF: </h3>
         <table className="shadow">
           <thead>
             <tr>
