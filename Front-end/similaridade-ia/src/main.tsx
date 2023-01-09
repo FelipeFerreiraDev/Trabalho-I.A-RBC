@@ -6,21 +6,18 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { Casos } from './view/casos';
-import { LerArquivo } from './view/lerArquivo';
+import { Footer } from './components/footer';
 
 const router = createBrowserRouter([
   {
     path: "/casos",
       element: <Casos/>,
   },
-  {
-    path: "/",
-      element: <LerArquivo/>,
-  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <Footer/>
   </React.StrictMode>
 )
