@@ -188,6 +188,16 @@ button {
   @apply w-full bg-green-900 rounded-md text-white py-3 hover:bg-green-800 transition-all
 }
 
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+tr:nth-child(){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
 
 @media screen and (max-width: 1440px) {
   section {

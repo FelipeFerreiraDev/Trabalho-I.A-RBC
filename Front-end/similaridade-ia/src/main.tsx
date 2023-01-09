@@ -7,12 +7,17 @@ import {
 } from "react-router-dom";
 import { Casos } from './view/casos';
 import { Footer } from './components/footer';
+import { Candidatos } from './view/candidatos';
 
 const router = createBrowserRouter([
   {
     path: "/casos",
       element: <Casos/>,
   },
+  {
+    path: "/candidatos",
+    element: <Candidatos/>,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
