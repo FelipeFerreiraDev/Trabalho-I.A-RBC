@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 blockquote,
 dl,
 dd,
@@ -65,9 +66,6 @@ h4 {
   @apply font-bold text-xl my-4;
 }
 
-p {
-  margin-bottom: 1rem;
-}
 
 input[type="checkbox"] {
   appearance: none;
@@ -189,15 +187,16 @@ button {
 }
 
 td, th {
+  width: 25%;
   border: 1px solid #dddddd;
-  text-align: left;
+  text-align: center;
   padding: 8px;
 }
 
 
 tr:nth-child(){background-color: #f2f2f2;}
 
-tr:hover {background-color: #ddd;}
+
 
 @media screen and (max-width: 1440px) {
   section {
