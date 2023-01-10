@@ -250,7 +250,7 @@ export function Casos() {
           </select>
         </div>
         <div>
-          <label>Grao de murchamento</label>
+          <label>Grão de murchamento</label>
           <select className="">
             <option value="">Selecione o caso problema</option>
             {casosProblema.map((casoProblema) => (
