@@ -6,7 +6,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { Casos } from './view/casos';
-import { LerArquivo } from './view/lerArquivo';
+import { Footer } from './components/footer';
+import { Candidatos } from './view/candidatos';
+import { Header } from './components/header';
+import { Menu } from './view/menu';
 
 const router = createBrowserRouter([
   {
@@ -14,13 +17,19 @@ const router = createBrowserRouter([
       element: <Casos/>,
   },
   {
-    path: "/",
-      element: <LerArquivo/>,
+    path: "/candidatos",
+    element: <Candidatos/>,
   },
+  {
+    path: "/",
+    element: <Menu/>,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
+    <Header/>
     <RouterProvider router={router} />
+    <Footer/>
   </React.StrictMode>
 )
