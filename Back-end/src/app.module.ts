@@ -1,8 +1,11 @@
 import { Module } from '@nestjs/common';
 import { PrismaService } from './services/prisma/prisma.service';
 import { CasesModule } from './modules/cases/cases.module';
+import { AreaDamagedModule } from './modules/area_damaged/area_damaged.module';
+import { CankerLesionModule } from './modules/canker_lesion/canker_lesion.module';
+import { CropHistModule } from './modules/crop_hist/crop_hist.module';
 @Module({
-  imports: [CasesModule],
+  imports: [CasesModule, AreaDamagedModule, CankerLesionModule, CropHistModule],
   controllers: [],
   providers: [PrismaService],
   exports: [PrismaService],
