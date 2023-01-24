@@ -11,4 +11,9 @@ export class CasesService {
 
     return data;
   }
+
+  async findAll() {
+    const data = await this.prisma.cases.findMany();
+    return data;
+  }
 }
