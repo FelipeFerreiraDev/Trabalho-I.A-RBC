@@ -160,7 +160,7 @@ export function Casos() {
         try {
             const response = await api.post('/cases', form, {
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'application/json'
                 }
             })
             toast.success("Cadastrado com sucesso!") 
