@@ -158,7 +158,7 @@ export function Casos() {
         form.append('stem_cankers', stem_cankers)
         form.append('temp', temp)
         try {
-            const response = await api.post('/case', form, {
+            const response = await api.post('/cases', form, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
