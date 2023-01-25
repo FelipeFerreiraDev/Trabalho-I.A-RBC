@@ -1,63 +1,169 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { ToastContainer, toast } from "react-toastify";
 import api from "../../services"
 
 interface CasosProblema {
-    "desc_doenca": string,
-    "area_damaged": string,
-    "canker_lesion": string,
-    "crop_hist": string,
-    "date": string,
-    "external_decay": string,
-    "fruits_spots": string,
-    "fruiting_bodies": string,
-    "fruit_pods": string,
-    "germination": string,
-    "hail": string,
-    "int_discolor": string,
-    "leaf_malf": string,
-    "leaf_mild": string,
-    "leaf_shread": string,
-    "leafspots_halo": string,
-    "leafspots_size": string,
-    "leafspots_marg": string,
-    "leaves": string,
-    "lodging": string,
-    "mold_growth": string,
-    "mycelium": string,
-    "plant_growth": string,
-    "plant_stand": string,
-    "precip": string,
-    "roots": string,
-    "sclerotia": string,
-    "seed": string,
-    "seed_discolor": string,
-    "seed_size": string,
-    "seed_tmt": string,
-    "severity": string,
-    "shriveling": string,
-    "stem": string,
-    "stem_cankers": string,
-    "temp": string
+    "area_damaged": {
+        "area_damaged": string,
+        "peso": number
+    },
+    "canker_lesion": {
+        "canker_lesion": string,
+        "peso": number
+    },
+    "crop_hist": {
+        "crop_hist": string,
+        "peso": number
+    },
+    "date": {
+        "date": string,
+        "peso": number
+
+    },
+    "external_decay": {
+        "external_decay": string,
+        "peso": number
+
+    },
+    "fruits_spots": {
+        "fruits_spots": string,
+        "peso": number
+    },
+    "fruiting_bodies": {
+        "fruiting_bodies": string,
+        "peso": number
+    },
+    "fruit_pods": {
+        "fruit_pods": string,
+        "peso": number
+    },
+    "germination": {
+        "germination": string,
+        "peso": number
+    },
+    "hail": {
+        "hail": string,
+        "peso": number
+    },
+    "int_discolor": {
+        "int_discolor": string,
+        "peso": number
+    },
+    "leaf_malf": {
+        "leaf_malf": string,
+        "peso": number
+    },
+    "leaf_mild": {
+        "leaf_mild": string,
+        "peso": number
+    },
+    "leaf_shread": {
+        "leaf_shread": string,
+        "peso": number
+    },
+    "leafspots_halo": {
+        "leafspots_halo": string,
+        "peso": number
+    },
+    "leafspots_size": {
+        "leafspots_size": string,
+        "peso": number
+    },
+    "leafspots_marg": {
+        "leafspots_marg": string,
+        "peso": number
+    },
+    "leaves": {
+        "leaves": string,
+        "peso": number
+    },
+    "lodging": {
+        "lodging": string,
+        "peso": number
+    },
+    "mold_growth": {
+        "mold_growth": string,
+        "peso": number
+    },
+    "mycelium": {
+        "mycelium": string,
+        "peso": number
+    },
+    "plant_growth": {
+        "plant_growth": string,
+        "peso": number
+    },
+    "plant_stand": {
+        "plant_stand": string,
+        "peso": number
+    },
+    "precip": {
+        "precip": string,
+        "peso": number
+    },
+    "roots": {
+        "roots": string,
+        "peso": number
+    },
+    "sclerotia": {
+        "sclerotia": string,
+        "peso": number
+    },
+    "seed": {
+        "seed": string,
+        "peso": number
+    },
+    "seed_discolor": {
+        "seed_discolor": string,
+        "peso": number
+    },
+    "seed_size": {
+        "seed_size": string,
+        "peso": number
+    },
+    "seed_tmt": {
+        "seed_tmt": string,
+        "peso": number
+    },
+    "severity": {
+        "severity": string,
+        "peso": number
+    },
+    "shriveling": {
+        "shriveling": string,
+        "peso": number
+    },
+    "stem": {
+        "stem": string,
+        "peso": number
+    },
+    "stem_cankers": {
+        "stem_cankers": string,
+        "peso": number
+    },
+    "temp": {
+        "temp": string,
+        "peso": number
+    }
 }
 
 export function Casos() {
-    const [casosProblema, setCasosProblema] = useState<CasosProblema[]>([])
     const [desc_doenca, setDescDoenca] = useState<string>('')
+    const [fruiting_bodies, setFruitingBodies] = useState<string>('')
+    const [fruit_pods, setFruitPods] = useState<string>('')
+    const [leaf_malf, setLeafMalf] = useState<string>('')
+    const [leaf_mild, setLeafMild] = useState<string>('')
+    const [leaf_shread, setLeafShread] = useState<string>('')
+    const [casosProblema, setCasosProblema] = useState<CasosProblema[]>([])
     const [area_damaged, setAreaDamaged] = useState<string>('')
     const [canker_lesion, setCankerLesion] = useState<string>('')
     const [crop_hist, setCropHist] = useState<string>('')
     const [date, setDate] = useState('');
     const [external_decay, setExternalDecay] = useState<string>('')
     const [fruits_spots, setFruitsSpots] = useState<string>('')
-    const [fruiting_bodies, setFruitingBodies] = useState<string>('')
-    const [fruit_pods, setFruitPods] = useState<string>('')
     const [germination, setGermination] = useState<string>('')
     const [hail, setHail] = useState<string>('')
     const [int_discolor, setIntDiscolor] = useState<string>('')
-    const [leaf_malf, setLeafMalf] = useState<string>('')
-    const [leaf_mild, setLeafMild] = useState<string>('')
-    const [leaf_shread, setLeafShread] = useState<string>('')
     const [leafspots_halo, setLeafspotsHalo] = useState<string>('')
     const [leafspots_size, setLeafspotsSize] = useState<string>('')
     const [leafspots_marg, setLeafspotsMarg] = useState<string>('')
@@ -82,44 +188,6 @@ export function Casos() {
 
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault()
-        const data = {
-            desc_doenca,
-            area_damaged,
-            canker_lesion,
-            crop_hist,
-            date,
-            external_decay,
-            fruits_spots,
-            fruiting_bodies,
-            fruit_pods,
-            germination,
-            hail,
-            int_discolor,
-            leaf_malf,
-            leaf_mild,
-            leaf_shread,
-            leafspots_halo,
-            leafspots_size,
-            leafspots_marg,
-            leaves,
-            lodging,
-            mold_growth,
-            mycelium,
-            plant_growth,
-            plant_stand,
-            precip,
-            roots,
-            sclerotia,
-            seed,
-            seed_discolor,
-            seed_size,
-            seed_tmt,
-            severity,
-            shriveling,
-            stem,
-            stem_cankers,
-            temp
-        }
         const form = new FormData();
         form.append('desc_doenca', desc_doenca)
         form.append('area_damaged', area_damaged)
@@ -160,28 +228,33 @@ export function Casos() {
         try {
             const response = await api.post('/cases', form, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'multipart/form-data'
                 }
             })
-            toast.success("Cadastrado com sucesso!") 
+            toast.success("Cadastrado com sucesso!")
             console.log(response)
         } catch (error) {
             console.log(error)
         }
-        console.log(data)
     }
+
+    useEffect(() => {
+        api.get('/cases').then(response => {
+            setCasosProblema(response.data);
+            console.log(casosProblema)
+        })
+    }, [])
 
     return (
         <section>
             <ToastContainer />
             <h1>CBR | Preencha com o caso problema</h1>
             <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-x-56 gap-y-5 h-full shadow-2xl bg-[#f5f5f5] p-5 rounded-md">
-                <div className="">
+                <div>
                     <label>Área danificada</label>
                     <select name="area_damaged" id="area_damaged" onChange={(e) => setAreaDamaged(e.target.value)}>
-                        <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casosProblema) => (
-                            <option value={casosProblema.area_damaged}>{casosProblema.area_damaged}</option>
+                            <option value={casosProblema.area_damaged.area_damaged}>{casosProblema.area_damaged.area_damaged}</option>
                         ))}
                     </select>
                 </div>
@@ -190,7 +263,7 @@ export function Casos() {
                     <select name="canker_lesion" id="canker_lesion" onChange={(e) => setCankerLesion(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.canker_lesion}>{casoProblema.canker_lesion}</option>
+                            <option value={casoProblema.canker_lesion.canker_lesion}>{casoProblema.canker_lesion.canker_lesion}</option>
                         ))}
                     </select>
                 </div>
@@ -199,7 +272,7 @@ export function Casos() {
                     <select name="crop_hist" id="crop_hist" onChange={(e) => setCropHist(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.crop_hist}>{casoProblema.crop_hist}</option>
+                            <option value={casoProblema.crop_hist.crop_hist}>{casoProblema.crop_hist.crop_hist}</option>
                         ))}
                     </select>
                 </div>
@@ -208,7 +281,7 @@ export function Casos() {
                     <select name="date" id="date" onChange={(e) => setDate(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.date}>{casoProblema.date}</option>
+                            <option value={casoProblema.date.date}>{casoProblema.date.date}</option>
                         ))}
                     </select>
                 </div>
@@ -217,7 +290,7 @@ export function Casos() {
                     <select name="external_decay" id="external_decay" onChange={(e) => setExternalDecay(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.external_decay}>{casoProblema.external_decay}</option>
+                            <option value={casoProblema.external_decay.external_decay}>{casoProblema.external_decay.external_decay}</option>
                         ))}
                     </select>
                 </div>
@@ -226,7 +299,7 @@ export function Casos() {
                     <select name="fruits_spots" id="fruits_spots" onChange={(e) => setFruitsSpots(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.fruits_spots}>{casoProblema.fruits_spots}</option>
+                            <option value={casoProblema.fruits_spots.fruits_spots}>{casoProblema.fruits_spots.fruits_spots}</option>
                         ))}
                     </select>
                 </div>
@@ -235,7 +308,7 @@ export function Casos() {
                     <select name="germination" id="germination" onChange={(e) => setGermination(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.germination}>{casoProblema.germination}</option>
+                            <option value={casoProblema.germination.germination}>{casoProblema.germination.germination}</option>
                         ))}
                     </select>
                 </div>
@@ -244,7 +317,7 @@ export function Casos() {
                     <select name="hail" id="hail" onChange={(e) => setHail(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.hail}>{casoProblema.hail}</option>
+                            <option value={casoProblema.hail.hail}>{casoProblema.hail.hail}</option>
                         ))}
                     </select>
                 </div>
@@ -253,7 +326,7 @@ export function Casos() {
                     <select name="int_discolor" id="int_discolor" onChange={(e) => setIntDiscolor(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.int_discolor}>{casoProblema.int_discolor}</option>
+                            <option value={casoProblema.int_discolor.int_discolor}>{casoProblema.int_discolor.int_discolor}</option>
                         ))}
                     </select>
                 </div>
@@ -262,7 +335,7 @@ export function Casos() {
                     <select name="leaves" id="leaves" onChange={(e) => setLeaves(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.leaves}>{casoProblema.leaves}</option>
+                            <option value={casoProblema.leaves.leaves}>{casoProblema.leaves.leaves}</option>
                         ))}
                     </select>
                 </div>
@@ -271,7 +344,7 @@ export function Casos() {
                     <select name="leafspots_halo" id="leafspots_halo" onChange={(e) => setLeafspotsHalo(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.leafspots_halo}>{casoProblema.leafspots_halo}</option>
+                            <option value={casoProblema.leafspots_halo.leafspots_halo}>{casoProblema.leafspots_halo.leafspots_halo}</option>
                         ))}
                     </select>
                 </div>
@@ -280,7 +353,7 @@ export function Casos() {
                     <select name="leafspots_size" id="leafspots_size" onChange={(e) => setLeafspotsSize(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.leafspots_size}>{casoProblema.leafspots_size}</option>
+                            <option value={casoProblema.leafspots_size.leafspots_size}>{casoProblema.leafspots_size.leafspots_size}</option>
                         ))}
                     </select>
                 </div>
@@ -289,7 +362,7 @@ export function Casos() {
                     <select name="leafspots_marg" id="leafspots_marg" onChange={(e) => setLeafspotsMarg(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.leafspots_marg}>{casoProblema.leafspots_marg}</option>
+                            <option value={casoProblema.leafspots_marg.leafspots_marg}>{casoProblema.leafspots_marg.leafspots_marg}</option>
                         ))}
                     </select>
                 </div>
@@ -298,7 +371,7 @@ export function Casos() {
                     <select name="leaves" id="leaves" onChange={(e) => setLeaves(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.leaves}>{casoProblema.leaves}</option>
+                            <option value={casoProblema.leaves.leaves}>{casoProblema.leaves.leaves}</option>
                         ))}
                     </select>
                 </div>
@@ -307,7 +380,7 @@ export function Casos() {
                     <select name="lodging" id="lodging" onChange={(e) => setLodging(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.lodging}>{casoProblema.lodging}</option>
+                            <option value={casoProblema.lodging.lodging}>{casoProblema.lodging.lodging}</option>
                         ))}
                     </select>
                 </div>
@@ -316,7 +389,7 @@ export function Casos() {
                     <select name="mold_growth" id="mold_growth" onChange={(e) => setMoldGrowth(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.mold_growth}>{casoProblema.mold_growth}</option>
+                            <option value={casoProblema.mold_growth.mold_growth}>{casoProblema.mold_growth.mold_growth}</option>
                         ))}
                     </select>
                 </div>
@@ -325,7 +398,7 @@ export function Casos() {
                     <select name="plant_growth" id="plant_growth" onChange={(e) => setPlantGrowth(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.plant_growth}>{casoProblema.plant_growth}</option>
+                            <option value={casoProblema.plant_growth.plant_growth}>{casoProblema.plant_growth.plant_growth}</option>
                         ))}
                     </select>
                 </div>
@@ -334,7 +407,7 @@ export function Casos() {
                     <select name="mycelium" id="mycelium" onChange={(e) => setMycelium(e.target.value)} >
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.mycelium}>{casoProblema.mycelium}</option>
+                            <option value={casoProblema.mycelium.mycelium}>{casoProblema.mycelium.mycelium}</option>
                         ))}
                     </select>
                 </div>
@@ -343,7 +416,7 @@ export function Casos() {
                     <select name="plant_stand" id="plant_stand" onChange={(e) => setPlantStand(e.target.value)} >
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.plant_stand}>{casoProblema.plant_stand}</option>
+                            <option value={casoProblema.plant_stand.plant_stand}>{casoProblema.plant_stand.plant_stand}</option>
                         ))}
                     </select>
                 </div>
@@ -352,7 +425,7 @@ export function Casos() {
                     <select name="precip" id="precip" onChange={(e) => setPrecip(e.target.value)} >
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.precip}>{casoProblema.precip}</option>
+                            <option value={casoProblema.precip.precip}>{casoProblema.precip.precip}</option>
                         ))}
                     </select>
                 </div>
@@ -361,7 +434,7 @@ export function Casos() {
                     <select name="roots" id="roots" onChange={(e) => setRoots(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.roots}>{casoProblema.roots}</option>
+                            <option value={casoProblema.roots.roots}>{casoProblema.roots.roots}</option>
                         ))}
                     </select>
                 </div>
@@ -370,7 +443,7 @@ export function Casos() {
                     <select name="sclerotia" id="sclerotia" onChange={(e) => setSclerotia(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.sclerotia}>{casoProblema.sclerotia}</option>
+                            <option value={casoProblema.sclerotia.sclerotia}>{casoProblema.sclerotia.sclerotia}</option>
                         ))}
                     </select>
                 </div>
@@ -379,7 +452,7 @@ export function Casos() {
                     <select name="seed" id="seed" onChange={(e) => setSeed(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.seed}>{casoProblema.seed}</option>
+                            <option value={casoProblema.seed.seed}>{casoProblema.seed.seed}</option>
                         ))}
                     </select>
                 </div>
@@ -388,7 +461,7 @@ export function Casos() {
                     <select name="seed_discolor" id="seed_discolor" onChange={(e) => setSeedDiscolor(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.seed_discolor}>{casoProblema.seed_discolor}</option>
+                            <option value={casoProblema.seed_discolor.seed_discolor}>{casoProblema.seed_discolor.seed_discolor}</option>
                         ))}
                     </select>
                 </div>
@@ -397,7 +470,7 @@ export function Casos() {
                     <select name="seed_size" id="seed_size" onChange={(e) => setSeedSize(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.seed_size}>{casoProblema.seed_size}</option>
+                            <option value={casoProblema.seed_size.seed_size}>{casoProblema.seed_size.seed_size}</option>
                         ))}
                     </select>
                 </div>
@@ -406,7 +479,7 @@ export function Casos() {
                     <select name="seed_tmt" id="seed_tmt" onChange={(e) => setSeedTmt(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.seed_tmt}>{casoProblema.seed_tmt}</option>
+                            <option value={casoProblema.seed_tmt.seed_tmt}>{casoProblema.seed_tmt.seed_tmt}</option>
                         ))}
                     </select>
                 </div>
@@ -415,7 +488,7 @@ export function Casos() {
                     <select name="severity" id="severity" onChange={(e) => setSeverity(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.severity}>{casoProblema.severity}</option>
+                            <option value={casoProblema.severity.severity}>{casoProblema.severity.severity}</option>
                         ))}
                     </select>
                 </div>
@@ -424,16 +497,16 @@ export function Casos() {
                     <select name="shriveling" id="shriveling" onChange={(e) => setShriveling(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.shriveling}>{casoProblema.shriveling}</option>
+                            <option value={casoProblema.shriveling.shriveling}>{casoProblema.shriveling.shriveling}</option>
                         ))}
                     </select>
                 </div>
                 <div>
                     <label>Tronco</label>
-                    <select  name="stem" id="stem" onChange={(e) => setStem(e.target.value)}>
+                    <select name="stem" id="stem" onChange={(e) => setStem(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.stem}>{casoProblema.stem}</option>
+                            <option value={casoProblema.stem.stem}>{casoProblema.stem.stem}</option>
                         ))}
                     </select>
                 </div>
@@ -442,7 +515,7 @@ export function Casos() {
                     <select name="stem_cankers" id="stem_cankers" onChange={(e) => setStemCankers(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.stem_cankers}>{casoProblema.stem_cankers}</option>
+                            <option value={casoProblema.stem_cankers.stem_cankers}>{casoProblema.stem_cankers.stem_cankers}</option>
                         ))}
                     </select>
                 </div>
@@ -451,7 +524,7 @@ export function Casos() {
                     <select name="temp" id="temp" onChange={(e) => setTemp(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
                         {casosProblema.map((casoProblema) => (
-                            <option value={casoProblema.temp}>{casoProblema.temp}</option>
+                            <option value={casoProblema.temp.temp}>{casoProblema.temp.temp}</option>
                         ))}
                     </select>
                 </div>
@@ -471,9 +544,9 @@ export function Casos() {
                         <option value="100">100%</option>
                     </select>
                 </div>
-            <div className="flex w-24 mt-4">
-                <button type="submit" className="bg-gray-300 duration-500">Enviar</button>
-            </div>
+                <div className="flex w-24 mt-4">
+                    <button type="submit" className="bg-gray-300 duration-500">Enviar</button>
+                </div>
             </form>
         </section>
     )
