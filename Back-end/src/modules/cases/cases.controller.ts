@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { CasesService } from './cases.service';
 
@@ -9,5 +9,10 @@ export class CasesController {
   @Post()
   async createCase(@Body() data: Prisma.CasesCreateInput) {
     return this.casesService.createCase(data);
+  }
+
+  @Get()
+  async findAll() {
+    return this.casesService.findAll();
   }
 }
