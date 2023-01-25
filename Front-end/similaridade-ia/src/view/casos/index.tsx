@@ -218,13 +218,13 @@ interface CasosProblema {
 }
 
 export function Casos() {
-    const [casosProblema, setCasosProblema] = useState<CasosProblema>();
-    const [desc_doenca, setDescDoenca] = useState<string>('')
+    const desc_doenca = "Doença: "
     const [fruiting_bodies, setFruitingBodies] = useState<string>('')
     const [fruit_pods, setFruitPods] = useState<string>('')
     const [leaf_malf, setLeafMalf] = useState<string>('')
     const [leaf_mild, setLeafMild] = useState<string>('')
     const [leaf_shread, setLeafShread] = useState<string>('')
+    const [casosProblema, setCasosProblema] = useState<CasosProblema>();
     const [area_damaged, setAreaDamaged] = useState<string>('')
     const [canker_lesion, setCankerLesion] = useState<string>('')
     const [crop_hist, setCropHist] = useState<string>('')
@@ -295,7 +295,47 @@ export function Casos() {
         form.append('stem', stem)
         form.append('stem_cankers', stem_cankers)
         form.append('temp', temp)
+        const  data = {
+            desc_doenca,
+            area_damaged,
+            canker_lesion,
+            crop_hist,
+            date,
+            external_decay,
+            fruits_spots,
+            fruiting_bodies,
+            fruit_pods,
+            germination,
+            hail,
+            int_discolor,
+            leaf_malf,
+            leaf_mild,
+            leaf_shread,
+            leafspots_halo,
+            leafspots_size,
+            leafspots_marg,
+            leaves,
+            lodging,
+            mold_growth,
+            mycelium,
+            plant_growth,
+            plant_stand,
+            precip,
+            roots,
+            sclerotia,
+            seed,
+            seed_discolor,
+            seed_size,
+            seed_tmt,
+            severity,
+            shriveling,
+            stem,
+            stem_cankers,
+            temp
+        }
+        console.log(data)
         try {
+            console.log('inicio');
             const response = await api.post('/cases', form, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
@@ -324,6 +364,38 @@ export function Casos() {
                     <select name="area_damaged" id="area_damaged" onChange={(e) => setAreaDamaged(e.target.value)}>
                         {casosProblema?.area_damaged.map((area) => (
                             <option key={area.area_damaged} value={area.area_damaged}>{area.area_damaged}</option>
+                        ))}
+                    </select>
+                </div>
+                <div>
+                    <label>Folhagem leve</label>
+                    <select name="leaf_mild" id="leaf_mild" onChange={(e) => setLeafMild(e.target.value)}>
+                        {casosProblema?.leaf_mild.map((leaf_mild) => (
+                            <option key={leaf_mild.leaf_mild} value={leaf_mild.leaf_mild}>{leaf_mild.leaf_mild}</option>
+                        ))}
+                    </select>
+                </div>
+                <div>
+                    <label>Mal formação na folha</label>
+                    <select name="leaf_malf" id="leaf_malf" onChange={(e) => setLeafMalf(e.target.value)}>
+                        {casosProblema?.leaf_malf.map((leaf_malf) => (
+                            <option key={leaf_malf.leaf_malf} value={leaf_malf.leaf_malf}>{leaf_malf.leaf_malf}</option>
+                        ))}
+                    </select>
+                </div>
+                <div>
+                    <label>Vagens de fruta</label>
+                    <select name="fruit_pods" id="fruit_pods" onChange={(e) => setFruitPods(e.target.value)}>
+                        {casosProblema?.fruit_pods.map((fruit_pods) => (
+                            <option key={fruit_pods.fruit_pods} value={fruit_pods.fruit_pods}>{fruit_pods.fruit_pods}</option>
+                        ))}
+                    </select>
+                </div>
+                <div>
+                    <label>Área danificada</label>
+                    <select name="fruiting_bodies" id="fruiting_bodies" onChange={(e) => setAreaDamaged(e.target.value)}>
+                        {casosProblema?.fruiting_bodies.map((fruiting_bodies) => (
+                            <option key={fruiting_bodies.fruiting_bodies} value={fruiting_bodies.fruiting_bodies}>{fruiting_bodies.fruiting_bodies}</option>
                         ))}
                     </select>
                 </div>
@@ -401,10 +473,10 @@ export function Casos() {
                 </div>
                 <div>
                     <label>Folhagem</label>
-                    <select name="leaves" id="leaves" onChange={(e) => setLeaves(e.target.value)}>
+                    <select name="leaf_shread" id="leaf_shread" onChange={(e) => setLeafShread(e.target.value)}>
                         <option value="">Selecione o caso problema</option>
-                        {casosProblema?.leaves.map((leaves) => (
-                            <option key={leaves.leaves} value={leaves.leaves}>{leaves.leaves}</option>
+                        {casosProblema?.leaf_shread.map((leaf_shread) => (
+                            <option key={leaf_shread.leaf_shread} value={leaf_shread.leaf_shread}>{leaf_shread.leaf_shread}</option>
                         ))}
                     </select>
                 </div>
