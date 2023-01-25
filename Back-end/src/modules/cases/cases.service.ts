@@ -16,4 +16,13 @@ export class CasesService {
     const data = await this.prisma.cases.findMany();
     return data;
   }
+
+  async lastCase() {
+    const data = await this.prisma.cases.findFirst({
+      orderBy: {
+        case: 'desc',
+      },
+    });
+    return data;
+  }
 }

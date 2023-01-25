@@ -1,15 +1,36 @@
+import { useEffect, useState } from "react";
+import api from "../../services";
+
+interface CasosProblema {
+  area_damaged: string;
+}
+
+
 export function Candidatos() {
+  const [casosProblema, setCasosProblema] = useState<CasosProblema>();
+
+
+
+  useEffect(() => {
+    api.get('/cases/last').then(response => {
+        setCasosProblema(response.data);
+    })
+}, [])
   return (
     <section className="w-full grid grid-cols-3 justify-items-center bg-gray-150">
       <div className="h-screen flex flex-col col-span-2 w-full">
         <h2 className="mb-0">Caso problema</h2>
         <h4>CASO: </h4>
         <div className="bg-[#f5f5f5] rounded-md shadow-2xl">
-          <div className="grid  grid-cols-2 gap-x-2 gap-y-2 h-1/5 m-2 text-sm">
+          
+              
+                <div className="grid  grid-cols-2 gap-x-2 gap-y-2 h-1/5 m-2 text-sm">
             <div className="px-1 border-solid border-2 border-[#cccccc]  rounded flex">
-              <label className="w-3/5">Área danificada</label>
+              <label className="w-3/5">Area danificada</label>
               <label>&#129046;</label>
-              <label className="flex w-2/4 justify-end">glauco</label>
+              <label className="flex w-2/4 justify-end">{casosProblema?.area_damaged.map((casosProblema) =>(
+                <div>{casosProblema.area_damaged}</div>
+              ))}</label>
             </div>
             <div className="px-1 border-solid border-2 border-[#cccccc]  rounded flex">
               <label className="w-3/5">Lesão na folha</label>
@@ -152,6 +173,7 @@ export function Candidatos() {
               <label className="flex w-2/4 justify-end">glauco</label>
             </div>
           </div>
+
         </div>
 
         <div>

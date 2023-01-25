@@ -20,4 +20,10 @@ export class CasesController {
     async qualquerCoisa() {
         return "qualquer coisa";
     }
+
+    //@Get que retorna o ultimo caso criado
+    @Get('/last')
+    async lastCase() {
+        return this.casesService.lastCase();
+    }
 }
