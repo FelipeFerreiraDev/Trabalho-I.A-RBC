@@ -235,7 +235,7 @@ export function Candidatos() {
                 <p>Descrição do back</p>
               </td>
               <td>
-                <p>100%</p>
+                <p>{localStorage.getItem('cnf')}</p>
               </td>
               <td>
                 <button type="submit" className="w-24"> Selecionar </button>

@@ -226,6 +226,8 @@ interface CasosProblema {
 
 export function Casos() {
     const desc_doenca = "diaporthe-stem-canker"
+    const [cnf, setCnf] = useState<string>('')
+    localStorage.setItem('cnf', cnf)
     const [fruiting_bodies, setFruitingBodies] = useState<string>('')
     const [fruit_pods, setFruitPods] = useState<string>('')
     const [leaf_malf, setLeafMalf] = useState<string>('')
@@ -303,6 +305,7 @@ export function Casos() {
             stem_cankers,
             temp
         }
+        console.log(localStorage.getItem('cnf'))
         try {
             const response = await api.post('/cases', data)
             toast.success("Cadastrado com sucesso!")
@@ -639,7 +642,7 @@ export function Casos() {
                 </div>
                 <div>
                     <label>CNF</label>
-                    <select>
+                    <select  onChange={(e) => setCnf(e.target.value)}>
                         <option value="0">0%</option>
                         <option value="10">10%</option>
                         <option value="20">20%</option>
