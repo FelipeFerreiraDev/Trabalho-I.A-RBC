@@ -1,224 +1,231 @@
 import { useEffect, useState } from "react"
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import api from "../../services"
 
 interface CasosProblema {
+    "desc_doenca": [
+        {
+            "desc_doenca": string,
+            "peso": number
+        }
+    ],
     "area_damaged": [
         {
-        "area_damaged": string,
-        "peso": number
+            "area_damaged": string,
+            "peso": number
         }
     ],
     "canker_lesion": [
         {
-        "canker_lesion": string,
-        "peso": number
+            "canker_lesion": string,
+            "peso": number
         }
     ],
     "crop_hist": [
         {
-        "crop_hist": string,
-        "peso": number
+            "crop_hist": string,
+            "peso": number
         }
     ],
     "date": [
         {
-        "date": string,
-        "peso": number
+            "date": string,
+            "peso": number
         }
 
     ],
     "external_decay": [
         {
-        "external_decay": string,
-        "peso": number
+            "external_decay": string,
+            "peso": number
         }
 
     ],
     "fruits_spots": [
         {
-        "fruits_spots": string,
-        "peso": number
+            "fruits_spots": string,
+            "peso": number
         }
     ],
     "fruiting_bodies": [
         {
-        "fruiting_bodies": string,
-        "peso": number
+            "fruiting_bodies": string,
+            "peso": number
         }
     ],
     "fruit_pods": [
         {
-        "fruit_pods": string,
-        "peso": number
+            "fruit_pods": string,
+            "peso": number
         }
     ],
     "germination": [
         {
-        "germination": string,
-        "peso": number
+            "germination": string,
+            "peso": number
         }
     ],
     "hail": [
         {
-        "hail": string,
-        "peso": number
+            "hail": string,
+            "peso": number
         }
     ],
     "int_discolor": [
         {
-        "int_discolor": string,
-        "peso": number
+            "int_discolor": string,
+            "peso": number
         }
     ],
     "leaf_malf": [
         {
-        "leaf_malf": string,
-        "peso": number
+            "leaf_malf": string,
+            "peso": number
         }
     ],
     "leaf_mild": [
         {
-        "leaf_mild": string,
-        "peso": number
+            "leaf_mild": string,
+            "peso": number
         }
     ],
     "leaf_shread": [
         {
-        "leaf_shread": string,
-        "peso": number
+            "leaf_shread": string,
+            "peso": number
         }
     ],
     "leafspots_halo": [
         {
-        "leafspots_halo": string,
-        "peso": number
+            "leafspots_halo": string,
+            "peso": number
         }
     ],
     "leafspots_size": [
         {
-        "leafspots_size": string,
-        "peso": number
+            "leafspots_size": string,
+            "peso": number
         }
     ],
     "leafspots_marg": [
         {
-        "leafspots_marg": string,
-        "peso": number
+            "leafspots_marg": string,
+            "peso": number
         }
     ],
     "leaves": [
         {
-        "leaves": string,
-        "peso": number
+            "leaves": string,
+            "peso": number
         }
     ],
     "lodging": [
         {
-        "lodging": string,
-        "peso": number
+            "lodging": string,
+            "peso": number
         }
     ],
     "mold_growth": [
         {
-        "mold_growth": string,
-        "peso": number
+            "mold_growth": string,
+            "peso": number
         }
     ],
     "mycelium": [
         {
-        "mycelium": string,
-        "peso": number
+            "mycelium": string,
+            "peso": number
         }
     ],
     "plant_growth": [
         {
-        "plant_growth": string,
-        "peso": number
+            "plant_growth": string,
+            "peso": number
         }
     ],
     "plant_stand": [
         {
-        "plant_stand": string,
-        "peso": number
+            "plant_stand": string,
+            "peso": number
         }
     ],
     "precip": [
         {
-        "precip": string,
-        "peso": number
+            "precip": string,
+            "peso": number
         }
     ],
     "roots": [
         {
-        "roots": string,
-        "peso": number
+            "roots": string,
+            "peso": number
         }
     ],
     "sclerotia": [
         {
-        "sclerotia": string,
-        "peso": number
+            "sclerotia": string,
+            "peso": number
         }
     ],
     "seed": [
         {
-        "seed": string,
-        "peso": number
+            "seed": string,
+            "peso": number
         }
     ],
     "seed_discolor": [
         {
-        "seed_discolor": string,
-        "peso": number
+            "seed_discolor": string,
+            "peso": number
         }
     ],
     "seed_size": [
         {
-        "seed_size": string,
-        "peso": number
+            "seed_size": string,
+            "peso": number
         }
     ],
     "seed_tmt": [
         {
-        "seed_tmt": string,
-        "peso": number
+            "seed_tmt": string,
+            "peso": number
         }
     ],
     "severity": [
         {
-        "severity": string,
-        "peso": number
+            "severity": string,
+            "peso": number
         }
     ],
     "shriveling": [
         {
-        "shriveling": string,
-        "peso": number
+            "shriveling": string,
+            "peso": number
         }
     ],
     "stem": [
         {
-        "stem": string,
-        "peso": number
+            "stem": string,
+            "peso": number
         }
     ],
     "stem_cankers": [
         {
-        "stem_cankers": string,
-        "peso": number
+            "stem_cankers": string,
+            "peso": number
         }
     ],
     "temp": [
         {
-        "temp": string,
-        "peso": number
+            "temp": string,
+            "peso": number
         }
     ]
 }
 
 export function Casos() {
-    const desc_doenca = "Doença: "
+    const desc_doenca = "diaporthe-stem-canker"
     const [fruiting_bodies, setFruitingBodies] = useState<string>('')
     const [fruit_pods, setFruitPods] = useState<string>('')
     const [leaf_malf, setLeafMalf] = useState<string>('')
@@ -258,44 +265,7 @@ export function Casos() {
 
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault()
-        const form = new FormData();
-        form.append('desc_doenca', desc_doenca)
-        form.append('area_damaged', area_damaged)
-        form.append('canker_lesion', canker_lesion)
-        form.append('crop_hist', crop_hist)
-        form.append('date', date)
-        form.append('external_decay', external_decay)
-        form.append('fruits_spots', fruits_spots)
-        form.append('fruiting_bodies', fruiting_bodies)
-        form.append('fruit_pods', fruit_pods)
-        form.append('germination', germination)
-        form.append('hail', hail)
-        form.append('int_discolor', int_discolor)
-        form.append('leaf_malf', leaf_malf)
-        form.append('leaf_mild', leaf_mild)
-        form.append('leaf_shread', leaf_shread)
-        form.append('leafspots_halo', leafspots_halo)
-        form.append('leafspots_size', leafspots_size)
-        form.append('leafspots_marg', leafspots_marg)
-        form.append('leaves', leaves)
-        form.append('lodging', lodging)
-        form.append('mold_growth', mold_growth)
-        form.append('mycelium', mycelium)
-        form.append('plant_growth', plant_growth)
-        form.append('plant_stand', plant_stand)
-        form.append('precip', precip)
-        form.append('roots', roots)
-        form.append('sclerotia', sclerotia)
-        form.append('seed', seed)
-        form.append('seed_discolor', seed_discolor)
-        form.append('seed_size', seed_size)
-        form.append('seed_tmt', seed_tmt)
-        form.append('severity', severity)
-        form.append('shriveling', shriveling)
-        form.append('stem', stem)
-        form.append('stem_cankers', stem_cankers)
-        form.append('temp', temp)
-        const  data = {
+        const data = {
             desc_doenca,
             area_damaged,
             canker_lesion,
@@ -333,18 +303,11 @@ export function Casos() {
             stem_cankers,
             temp
         }
-        console.log(data)
         try {
-            console.log('inicio');
-            const response = await api.post('/cases', form, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            })
+            const response = await api.post('/cases', data)
             toast.success("Cadastrado com sucesso!")
-            console.log(response)
         } catch (error) {
-            console.log(error)
+            toast.error("Erro ao cadastrar caso!")
         }
     }
 
@@ -353,7 +316,7 @@ export function Casos() {
             setCasosProblema(response.data);
         })
     }, [])
-    
+
     return (
         <section>
             <ToastContainer />
@@ -362,6 +325,7 @@ export function Casos() {
                 <div>
                     <label>Área danificada</label>
                     <select name="area_damaged" id="area_damaged" onChange={(e) => setAreaDamaged(e.target.value)}>
+                        <option value="">Selecione o caso problema</option>
                         {casosProblema?.area_damaged.map((area) => (
                             <option key={area.area_damaged} value={area.area_damaged}>{area.area_damaged}</option>
                         ))}
@@ -370,6 +334,7 @@ export function Casos() {
                 <div>
                     <label>Folhagem leve</label>
                     <select name="leaf_mild" id="leaf_mild" onChange={(e) => setLeafMild(e.target.value)}>
+                        <option value="">Selecione o caso problema</option>
                         {casosProblema?.leaf_mild.map((leaf_mild) => (
                             <option key={leaf_mild.leaf_mild} value={leaf_mild.leaf_mild}>{leaf_mild.leaf_mild}</option>
                         ))}
@@ -378,6 +343,7 @@ export function Casos() {
                 <div>
                     <label>Mal formação na folha</label>
                     <select name="leaf_malf" id="leaf_malf" onChange={(e) => setLeafMalf(e.target.value)}>
+                        <option value="">Selecione o caso problema</option>
                         {casosProblema?.leaf_malf.map((leaf_malf) => (
                             <option key={leaf_malf.leaf_malf} value={leaf_malf.leaf_malf}>{leaf_malf.leaf_malf}</option>
                         ))}
@@ -386,14 +352,16 @@ export function Casos() {
                 <div>
                     <label>Vagens de fruta</label>
                     <select name="fruit_pods" id="fruit_pods" onChange={(e) => setFruitPods(e.target.value)}>
+                        <option value="">Selecione o caso problema</option>
                         {casosProblema?.fruit_pods.map((fruit_pods) => (
                             <option key={fruit_pods.fruit_pods} value={fruit_pods.fruit_pods}>{fruit_pods.fruit_pods}</option>
                         ))}
                     </select>
                 </div>
                 <div>
-                    <label>Área danificada</label>
-                    <select name="fruiting_bodies" id="fruiting_bodies" onChange={(e) => setAreaDamaged(e.target.value)}>
+                    <label>Manchas na fruta</label>
+                    <select name="fruiting_bodies" id="fruiting_bodies" onChange={(e) => setFruitingBodies(e.target.value)}>
+                        <option value="">Selecione o caso problema</option>
                         {casosProblema?.fruiting_bodies.map((fruiting_bodies) => (
                             <option key={fruiting_bodies.fruiting_bodies} value={fruiting_bodies.fruiting_bodies}>{fruiting_bodies.fruiting_bodies}</option>
                         ))}

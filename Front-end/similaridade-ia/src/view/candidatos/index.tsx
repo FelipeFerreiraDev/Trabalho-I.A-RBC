@@ -238,7 +238,7 @@ export function Candidatos() {
                 <p>100%</p>
               </td>
               <td>
-                <button className="w-24"> Selecionar </button>
+                <button type="submit" className="w-24"> Selecionar </button>
               </td>
             </tr>
           </tbody>
