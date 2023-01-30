@@ -1,65 +1,75 @@
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import api from "../../services";
 
 interface CasosProblema {
-    desc_doenca: string,
-    area_damaged: string,
-    canker_lesion: string,
-    crop_hist: string,
-    date: string,
-    external_decay: string,
-    fruits_spots: string,
-    fruiting_bodies: string,
-    fruit_pods: string,
-    germination: string,
-    hail: string,
-    int_discolor: string,
-    leaf_malf: string,
-    leaf_mild: string,
-    leaf_shread: string,
-    leafspots_halo: string,
-    leafspots_size: string,
-    leafspots_marg: string,
-    leaves: string,
-    lodging: string,
-    mold_growth: string,
-    mycelium: string,
-    plant_growth: string,
-    plant_stand: string,
-    precip: string,
-    roots: string,
-    sclerotia: string,
-    seed: string,
-    seed_discolor: string,
-    seed_size: string,
-    seed_tmt: string,
-    severity: string,
-    shriveling: string,
-    stem: string,
-    stem_cankers: string,
-    temp: string
+  case: string,
+  desc_doenca: string,
+  area_damaged: string,
+  canker_lesion: string,
+  crop_hist: string,
+  date: string,
+  external_decay: string,
+  fruits_spots: string,
+  fruiting_bodies: string,
+  fruit_pods: string,
+  germination: string,
+  hail: string,
+  int_discolor: string,
+  leaf_malf: string,
+  leaf_mild: string,
+  leaf_shread: string,
+  leafspots_halo: string,
+  leafspots_size: string,
+  leafspots_marg: string,
+  leaves: string,
+  lodging: string,
+  mold_growth: string,
+  mycelium: string,
+  plant_growth: string,
+  plant_stand: string,
+  precip: string,
+  roots: string,
+  sclerotia: string,
+  seed: string,
+  seed_discolor: string,
+  seed_size: string,
+  seed_tmt: string,
+  severity: string,
+  shriveling: string,
+  stem: string,
+  stem_cankers: string,
+  temp: string
 }
 
 
 export function Candidatos() {
   const [casosProblema, setCasosProblema] = useState<CasosProblema>();
+  const [casoSelecionado, setCasoSelecionado] = useState<CasosProblema>();
 
 
 
   useEffect(() => {
     api.get('/cases/last').then(response => {
-        setCasosProblema(response.data);
+      setCasosProblema(response.data);
     })
-}, [])
+  }, [])
+
+  useEffect(() => {
+    api.get('/cases').then(response => {
+      setCasoSelecionado(response.data);
+    })
+  }, [])
+
+
   return (
     <section className="w-full grid grid-cols-3 justify-items-center bg-gray-150">
       <div className="h-screen flex flex-col col-span-2 w-full">
         <h2 className="mb-0">Caso problema</h2>
         <h4>CASO: </h4>
         <div className="bg-[#f5f5f5] rounded-md shadow-2xl">
-          
-              
-                <div className="grid  grid-cols-2 gap-x-2 gap-y-2 h-1/5 m-2 text-sm">
+
+
+          <div className="grid  grid-cols-2 gap-x-2 gap-y-2 h-1/5 m-2 text-sm">
             <div className="px-1 border-solid border-2 border-[#cccccc]  rounded flex">
               <label className="w-3/5">Area danificada</label>
               <label>&#129046;</label>
@@ -214,6 +224,8 @@ export function Candidatos() {
         </div>
       </div>
 
+
+      
       <div className="h-screen w-11/12">
         <h2 >Lista de Casos Candidatos</h2>
         <h4>CNF: </h4>
@@ -223,13 +235,13 @@ export function Candidatos() {
               <th>Caso</th>
               <th>Descrição</th>
               <th>CNF</th>
-              <th>Selecionar</th>
+              <th>Selecionar</th> 
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>
-                0
+              0
               </td>
               <td>
                 <p>Descrição do back</p>
@@ -245,5 +257,6 @@ export function Candidatos() {
         </table>
       </div>
     </section>
+    
   )
 }
