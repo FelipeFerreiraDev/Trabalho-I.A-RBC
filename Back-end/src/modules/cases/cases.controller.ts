@@ -26,11 +26,6 @@ export class CasesController {
     return this.casesService.lastCase();
   }
 
-  @Get('/compare')
-  async compare() {
-    return this.casesService.compare();
-  }
-
   @Get(':id')
   async findOne(@Body() id: number) {
     return this.casesService.findOne(id);

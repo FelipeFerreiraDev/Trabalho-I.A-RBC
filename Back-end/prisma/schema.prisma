@@ -87,210 +87,210 @@ model Cases {
 
 model Area_damaged {
   area_damaged String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Canker_lesion {
   canker_lesion String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Crop_hist {
   crop_hist String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Date {
   date String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model External_decay {
   external_decay String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Fruits_spots {
   fruits_spots String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Fruiting_bodies {
   fruiting_bodies String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Fruit_pods {
   fruit_pods String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Germination {
   germination String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Hail {
   hail String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Int_discolor {
   int_discolor String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Leaf_malf {
   leaf_malf String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Leaf_mild {
   leaf_mild String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Leaf_shread {
   leaf_shread String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Leafspots_halo {
   leafspots_halo String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Leafspots_size {
   leafspots_size String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Leafspots_marg {
   leafspots_marg String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Leaves {
   leaves String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Lodging {
   lodging String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Mold_growth {
   mold_growth String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Mycelium {
   mycelium String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Plant_growth {
   plant_growth String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Plant_stand {
   plant_stand String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Precip {
   precip String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Roots {
   roots String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Sclerotia {
   sclerotia String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Seed {
   seed String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Seed_discolor {
   seed_discolor String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Seed_size {
   seed_size String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Seed_tmt {
   seed_tmt String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Severity {
   severity String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Shriveling {
   shriveling String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Stem {
   stem String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Stem_cankers {
   stem_cankers String @id
-  peso Int
+  valor Int
   casos Cases[]
 }
 
 model Temp {
   temp String @id
-  peso Int
+  valor Int
   casos Cases[]
 }

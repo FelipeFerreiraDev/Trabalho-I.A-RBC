@@ -9,10 +9,4 @@ export class AllController {
   findAll() {
     return this.allService.findAll();
   }
-
-  /* NÃO VAI FUNCIONAR JÁ QUE ALGUMAS TABELAS POSSUEM A MESMA CHAVE PRIMÁRIA
-  @Get('/unique')
-  findOne(@Body('id') id: string) {
-    return this.allService.findOne(id);
-  }*/
 }

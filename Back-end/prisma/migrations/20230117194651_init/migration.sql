@@ -77,209 +77,209 @@ CREATE TABLE "Cases" (
 -- CreateTable
 CREATE TABLE "Area_damaged" (
     "area_damaged" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Canker_lesion" (
     "canker_lesion" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Crop_hist" (
     "crop_hist" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Date" (
     "date" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "External_decay" (
     "external_decay" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Fruits_spots" (
     "fruits_spots" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Fruiting_bodies" (
     "fruiting_bodies" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Fruit_pods" (
     "fruit_pods" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Germination" (
     "germination" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Hail" (
     "hail" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Int_discolor" (
     "int_discolor" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Leaf_malf" (
     "leaf_malf" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Leaf_mild" (
     "leaf_mild" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Leaf_shread" (
     "leaf_shread" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Leafspots_halo" (
     "leafspots_halo" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Leafspots_size" (
     "leafspots_size" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Leafspots_marg" (
     "leafspots_marg" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Leaves" (
     "leaves" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Lodging" (
     "lodging" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Mold_growth" (
     "mold_growth" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Mycelium" (
     "mycelium" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Plant_growth" (
     "plant_growth" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Plant_stand" (
     "plant_stand" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Precip" (
     "precip" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Roots" (
     "roots" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Sclerotia" (
     "sclerotia" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Seed" (
     "seed" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Seed_discolor" (
     "seed_discolor" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Seed_size" (
     "seed_size" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Seed_tmt" (
     "seed_tmt" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Severity" (
     "severity" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Shriveling" (
     "shriveling" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Stem" (
     "stem" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Stem_cankers" (
     "stem_cankers" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Temp" (
     "temp" TEXT NOT NULL PRIMARY KEY,
-    "peso" INTEGER NOT NULL
+    "valor" INTEGER NOT NULL
 );

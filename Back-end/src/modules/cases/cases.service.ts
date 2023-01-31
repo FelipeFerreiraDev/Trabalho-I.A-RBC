@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
-import { Sql, sqltag } from '@prisma/client/runtime';
 import { PrismaService } from 'src/services/prisma/prisma.service';
 
 @Injectable()
@@ -114,17 +113,17 @@ export class CasesService {
   async calc(campo: string, table: string) {
     // -- SQLite
     // -- SELECT *,
-    // -- 1-(2-Area_damaged.peso)/(4-1)
+    // -- 1-(2-Area_damaged.valor)/(4-1)
     // -- FROM CASES
     // -- LEFT JOIN Area_damaged ON CASES.area_damaged = Area_damaged.area_damaged;
-    // -- SELECT MAX(Area_damaged.peso) FROM Area_damaged;
-    // -- SELECT MIN(Area_damaged.peso) FROM Area_damaged;
+    // -- SELECT MAX(Area_damaged.valor) FROM Area_damaged;
+    // -- SELECT MIN(Area_damaged.valor) FROM Area_damaged;
     // y = valor que o usuário inseriu
     // z = valor máximo
     // x = valor mínimo
     // SELECT *,
-    // 1-(y-Area_damaged.peso)/(z-x) AS area_damaged_sl,
-    // 1-(1-Canker_lesion.peso)/(3-0) AS canker_lesion_sl
+    // 1-(y-Area_damaged.valor)/(z-x) AS area_damaged_sl,
+    // 1-(1-Canker_lesion.valor)/(3-0) AS canker_lesion_sl
     // FROM CASES
     // LEFT JOIN Area_damaged ON CASES.area_damaged = Area_damaged.area_damaged
     // LEFT JOIN Canker_lesion ON CASES.canker_lesion = Canker_lesion.canker_lesion;
