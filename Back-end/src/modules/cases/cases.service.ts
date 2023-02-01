@@ -123,13 +123,85 @@ export class CasesService {
       },
     });
 
-    const valorAreaDamagedMax = await this.prisma.area_damaged.findFirst({
+    const valorCropHistMax = await this.prisma.crop_hist.findFirst({
       orderBy: {
         valor: 'desc',
       },
     });
 
-    const valorAreaDamagedMax = await this.prisma.area_damaged.findFirst({
+    const valorDateMax = await this.prisma.date.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorExternalMax = await this.prisma.external_decay.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorFruitPodsMax = await this.prisma.fruit_pods.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorFruitBodiesMax = await this.prisma.fruiting_bodies.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorFruitSpotsMax = await this.prisma.fruits_spots.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorGerminationMax = await this.prisma.germination.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorHailMax = await this.prisma.hail.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorIntDiscolorMax = await this.prisma.int_discolor.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorLeafMalfMax = await this.prisma.leaf_malf.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorLeafMildMax = await this.prisma.leaf_mild.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorLeafShreaddMax = await this.prisma.leaf_shread.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorLeafHaloMax = await this.prisma.leafspots_halo.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorLeafSpotsMargMax = await this.prisma.leafspots_marg.findFirst({
       orderBy: {
         valor: 'desc',
       },
