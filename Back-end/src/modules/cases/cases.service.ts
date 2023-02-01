@@ -207,6 +207,328 @@ export class CasesService {
       },
     });
 
+    const valorLeafSpotSizeMax = await this.prisma.leafspots_size.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorLeavesMax = await this.prisma.leaves.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorLodgingMax = await this.prisma.lodging.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorMoldGrowthMax = await this.prisma.mold_growth.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorMyceliumMax = await this.prisma.mycelium.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorPlantGrowthMax = await this.prisma.plant_growth.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorPlantStandMax = await this.prisma.plant_stand.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorPrecipMax = await this.prisma.precip.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorRootsMax = await this.prisma.roots.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorSclerotiaMax = await this.prisma.sclerotia.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorSeedMax = await this.prisma.seed.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorSeedDiscolorMax = await this.prisma.seed_discolor.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorSeedSizeMax = await this.prisma.seed_size.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorSeedTmtMax = await this.prisma.seed_tmt.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorSeverityMax = await this.prisma.severity.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorShrivelingMax = await this.prisma.shriveling.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorStemMax = await this.prisma.stem.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorStemCankersMax = await this.prisma.stem_cankers.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorTempMax = await this.prisma.temp.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+    const valorAreaDamagedMin = await this.prisma.area_damaged.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorCankerLesionMin = await this.prisma.canker_lesion.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorCropHistMin = await this.prisma.crop_hist.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorDateMin = await this.prisma.date.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorExternalMin = await this.prisma.external_decay.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorFruitPodsMin = await this.prisma.fruit_pods.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorFruitBodiesMin = await this.prisma.fruiting_bodies.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorFruitSpotsMin = await this.prisma.fruits_spots.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorGerminationMin = await this.prisma.germination.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorHailMin = await this.prisma.hail.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorIntDiscolorMin = await this.prisma.int_discolor.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorLeafMalfMin = await this.prisma.leaf_malf.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorLeafMildMin = await this.prisma.leaf_mild.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorLeafShreaddMin = await this.prisma.leaf_shread.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorLeafHaloMin = await this.prisma.leafspots_halo.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorLeafSpotsMargMin = await this.prisma.leafspots_marg.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorLeafSpotSizeMin = await this.prisma.leafspots_size.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorLeavesMin = await this.prisma.leaves.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorLodgingMin = await this.prisma.lodging.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorMoldGrowthMin = await this.prisma.mold_growth.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorMyceliumMin = await this.prisma.mycelium.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorPlantGrowthMin = await this.prisma.plant_growth.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorPlantStandMin = await this.prisma.plant_stand.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorPrecipMin = await this.prisma.precip.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorRootsMin = await this.prisma.roots.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorSclerotiaMin = await this.prisma.sclerotia.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorSeedMin = await this.prisma.seed.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorSeedDiscolorMin = await this.prisma.seed_discolor.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorSeedSizeMin = await this.prisma.seed_size.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorSeedTmtMin = await this.prisma.seed_tmt.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorSeverityMin = await this.prisma.severity.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorShrivelingMin = await this.prisma.shriveling.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorStemMin = await this.prisma.stem.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorStemCankersMin = await this.prisma.stem_cankers.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorTempMin = await this.prisma.temp.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
     return valorAreaDamagedMax;
     // const valorMax = await this.prisma
     //   .$queryRaw`SELECT Area_damaged.valor FROM Area_damaged ORDER BY Area_damaged.valor DESC LIMIT 1
