@@ -14,7 +14,7 @@
 -- LEFT JOIN Area_damaged ON CASES.area_damaged = Area_damaged.area_damaged
 -- LEFT JOIN Canker_lesion ON CASES.canker_lesion = Canker_lesion.canker_lesion;
 
--- ALTER COLUMN NAME valor TO VALOR IN ALL TABLES
+ALTER COLUMN NAME valor TO VALOR IN ALL TABLES
 ALTER TABLE Area_damaged RENAME COLUMN valor TO valor;
 ALTER TABLE Canker_lesion RENAME COLUMN valor TO valor;
 ALTER TABLE Crop_hist RENAME COLUMN valor TO valor;
@@ -46,6 +46,7 @@ ALTER TABLE Seed_discolor RENAME COLUMN valor TO valor;
 ALTER TABLE Seed_size RENAME COLUMN valor TO valor;
 ALTER TABLE Seed_tmt RENAME COLUMN valor TO valor;
 ALTER TABLE Severity RENAME COLUMN valor TO valor;
+ALTER TABLE Shriveling RENAME COLUMN valor TO valor; -- batata tinha esquecido desse
 ALTER TABLE Stem RENAME COLUMN valor TO valor;
 ALTER TABLE Stem_cankers RENAME COLUMN valor TO valor;
 ALTER TABLE Temp RENAME COLUMN valor TO valor;
