@@ -110,7 +110,37 @@ export class CasesService {
     return data;
   }
 
-  async calc(campo: string, table: string) {
+  async calc() {
+    const valorAreaDamagedMax = await this.prisma.area_damaged.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorCankerLesionMax = await this.prisma.canker_lesion.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorAreaDamagedMax = await this.prisma.area_damaged.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    const valorAreaDamagedMax = await this.prisma.area_damaged.findFirst({
+      orderBy: {
+        valor: 'desc',
+      },
+    });
+
+    return valorAreaDamagedMax;
+    // const valorMax = await this.prisma
+    //   .$queryRaw`SELECT Area_damaged.valor FROM Area_damaged ORDER BY Area_damaged.valor DESC LIMIT 1
+    //   SELECT Crop_hist.valor FROM Crop_hist ORDER BY Crop_hist.valor DESC LIMIT 1
+    //   `;
+    // return valorMax;
     // -- SQLite
     // -- SELECT *,
     // -- 1-(2-Area_damaged.valor)/(4-1)
