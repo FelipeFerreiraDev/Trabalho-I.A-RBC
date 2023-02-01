@@ -30,9 +30,4 @@ export class CasesController {
   async findOne(@Body() id: number) {
     return this.casesService.findOne(id);
   }
-
-  @Post('/calc')
-  async calcular() {
-    return this.casesService.calc();
-  }
 }
