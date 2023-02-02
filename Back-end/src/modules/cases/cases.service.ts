@@ -659,7 +659,7 @@ export class CasesService {
     1- ABS ((${cropValue}-Crop_hist.valor)/(${valorCropHistMax.valor}-${valorCropHistMin.valor})) END AS crop_sl,
 
     CASE WHEN ${dateValue} IS NULL THEN CAST(0 AS FLOAT) ELSE
-    1- ABS ((${dateValue}-Date.valor)/(${valorDateMax.valor}-${valorDateMin.valor})) END AS date_sl,
+    CASE WHEN ABS(${dateValue}-Date.valor) < ABS(${dateValue}-(Date.valor-12)) THEN ABS((${dateValue}-Date.valor) / (12-1)) ELSE ABS((${dateValue}-(Date.valor-12)) / (12-1)) END END AS date_sl,
 
     CASE WHEN ${externalValue} IS NULL THEN CAST(0 AS FLOAT) ELSE
     1- ABS ((${externalValue}-External_decay.valor)/(${valorExternalMax.valor}-${valorExternalMin.valor})) END AS external_decay_sl,
