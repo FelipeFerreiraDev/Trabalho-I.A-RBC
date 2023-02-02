@@ -46,8 +46,16 @@ ALTER TABLE Seed_discolor RENAME COLUMN valor TO valor;
 ALTER TABLE Seed_size RENAME COLUMN valor TO valor;
 ALTER TABLE Seed_tmt RENAME COLUMN valor TO valor;
 ALTER TABLE Severity RENAME COLUMN valor TO valor;
-ALTER TABLE Shriveling RENAME COLUMN valor TO valor; -- batata tinha esquecido desse
+ALTER TABLE Shriveling RENAME COLUMN valor TO valor;
 ALTER TABLE Stem RENAME COLUMN valor TO valor;
 ALTER TABLE Stem_cankers RENAME COLUMN valor TO valor;
 ALTER TABLE Temp RENAME COLUMN valor TO valor;
 
+-- TESTES
+-- SQLite
+SELECT *,
+1-(4-Area_damaged.valor)/(4-1) AS area_damaged_sl,
+1-(1-Canker_lesion.valor)/(3-0) AS canker_lesion_sl
+FROM CASES
+LEFT JOIN Area_damaged ON CASES.area_damaged = Area_damaged.area_damaged
+LEFT JOIN Canker_lesion ON CASES.canker_lesion = Canker_lesion.canker_lesion;

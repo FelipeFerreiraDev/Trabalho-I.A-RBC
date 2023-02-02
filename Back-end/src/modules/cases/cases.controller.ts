@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Param } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { CasesService } from './cases.service';
 
@@ -29,5 +29,10 @@ export class CasesController {
   @Get(':id')
   async findOne(@Body() id: number) {
     return this.casesService.findOne(id);
+  }
+
+  @Post('/calc/:id')
+  async calcular(@Body() id: number) {
+    return this.casesService.calc(id);
   }
 }
