@@ -47,11 +47,15 @@ export class AllService {
     return data;
   }
 
-  /* NÃO VAI FUNCIONAR JÁ QUE ALGUMAS TABELAS POSSUEM A MESMA CHAVE PRIMÁRIA
-  async findOne(id: string) {
-    // find all tables
-    const data = await this.prisma.$queryRaw`SELECT * FROM * WHERE * = ${id}`;
+  async peso() {
+    const data = {
+      peso: await this.prisma.columnPeso.findMany({
+        orderBy: {
+          atributo: 'asc',
+        },
+      }),
+    };
 
     return data;
-  }*/
+  }
 }

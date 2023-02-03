@@ -9,4 +9,9 @@ export class AllController {
   findAll() {
     return this.allService.findAll();
   }
+
+  @Get('/peso')
+  peso() {
+    return this.allService.peso();
+  }
 }
