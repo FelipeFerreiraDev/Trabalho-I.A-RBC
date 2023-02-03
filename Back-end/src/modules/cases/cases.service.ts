@@ -129,12 +129,6 @@ export class CasesService {
       },
     });
 
-    const valorDateMax = await this.prisma.date.findFirst({
-      orderBy: {
-        valor: 'desc',
-      },
-    });
-
     const valorExternalMax = await this.prisma.external_decay.findFirst({
       orderBy: {
         valor: 'desc',
@@ -333,12 +327,6 @@ export class CasesService {
     });
 
     const valorCropHistMin = await this.prisma.crop_hist.findFirst({
-      orderBy: {
-        valor: 'asc',
-      },
-    });
-
-    const valorDateMin = await this.prisma.date.findFirst({
       orderBy: {
         valor: 'asc',
       },
