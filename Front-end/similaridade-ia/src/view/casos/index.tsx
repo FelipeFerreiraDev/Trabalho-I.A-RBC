@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import api from "../../services"
@@ -228,42 +229,42 @@ export function Casos() {
     const desc_doenca = "diaporthe-stem-canker"
     const [cnf, setCnf] = useState<string>('')
     localStorage.setItem('cnf', cnf)
-    const [fruiting_bodies, setFruitingBodies] = useState<string>('')
-    const [fruit_pods, setFruitPods] = useState<string>('')
-    const [leaf_malf, setLeafMalf] = useState<string>('')
-    const [leaf_mild, setLeafMild] = useState<string>('')
-    const [leaf_shread, setLeafShread] = useState<string>('')
+    const [fruiting_bodies, setFruitingBodies] = useState<string>()
+    const [fruit_pods, setFruitPods] = useState<string>()
+    const [leaf_malf, setLeafMalf] = useState<string>()
+    const [leaf_mild, setLeafMild] = useState<string>()
+    const [leaf_shread, setLeafShread] = useState<string>()
     const [casosProblema, setCasosProblema] = useState<CasosProblema>();
-    const [area_damaged, setAreaDamaged] = useState<string>('')
-    const [canker_lesion, setCankerLesion] = useState<string>('')
-    const [crop_hist, setCropHist] = useState<string>('')
-    const [date, setDate] = useState('');
-    const [external_decay, setExternalDecay] = useState<string>('')
-    const [fruits_spots, setFruitsSpots] = useState<string>('')
-    const [germination, setGermination] = useState<string>('')
-    const [hail, setHail] = useState<string>('')
-    const [int_discolor, setIntDiscolor] = useState<string>('')
-    const [leafspots_halo, setLeafspotsHalo] = useState<string>('')
-    const [leafspots_size, setLeafspotsSize] = useState<string>('')
-    const [leafspots_marg, setLeafspotsMarg] = useState<string>('')
-    const [leaves, setLeaves] = useState<string>('')
-    const [lodging, setLodging] = useState<string>('')
-    const [mold_growth, setMoldGrowth] = useState<string>('')
-    const [mycelium, setMycelium] = useState<string>('')
-    const [plant_growth, setPlantGrowth] = useState<string>('')
-    const [plant_stand, setPlantStand] = useState<string>('')
-    const [precip, setPrecip] = useState<string>('')
-    const [roots, setRoots] = useState<string>('')
-    const [sclerotia, setSclerotia] = useState<string>('')
-    const [seed, setSeed] = useState<string>('')
-    const [seed_discolor, setSeedDiscolor] = useState<string>('')
-    const [seed_size, setSeedSize] = useState<string>('')
-    const [seed_tmt, setSeedTmt] = useState<string>('')
-    const [severity, setSeverity] = useState<string>('')
-    const [shriveling, setShriveling] = useState<string>('')
-    const [stem, setStem] = useState<string>('')
-    const [stem_cankers, setStemCankers] = useState<string>('')
-    const [temp, setTemp] = useState<string>('')
+    const [area_damaged, setAreaDamaged] = useState<string>()
+    const [canker_lesion, setCankerLesion] = useState<string>()
+    const [crop_hist, setCropHist] = useState<string>()
+    const [date, setDate] = useState<string>();
+    const [external_decay, setExternalDecay] = useState<string>()
+    const [fruits_spots, setFruitsSpots] = useState<string>()
+    const [germination, setGermination] = useState<string>()
+    const [hail, setHail] = useState<string>()
+    const [int_discolor, setIntDiscolor] = useState<string>()
+    const [leafspots_halo, setLeafspotsHalo] = useState<string>()
+    const [leafspots_size, setLeafspotsSize] = useState<string>()
+    const [leafspots_marg, setLeafspotsMarg] = useState<string>()
+    const [leaves, setLeaves] = useState<string>()
+    const [lodging, setLodging] = useState<string>()
+    const [mold_growth, setMoldGrowth] = useState<string>()
+    const [mycelium, setMycelium] = useState<string>()
+    const [plant_growth, setPlantGrowth] = useState<string>()
+    const [plant_stand, setPlantStand] = useState<string>()
+    const [precip, setPrecip] = useState<string>()
+    const [roots, setRoots] = useState<string>()
+    const [sclerotia, setSclerotia] = useState<string>()
+    const [seed, setSeed] = useState<string>()
+    const [seed_discolor, setSeedDiscolor] = useState<string>()
+    const [seed_size, setSeedSize] = useState<string>()
+    const [seed_tmt, setSeedTmt] = useState<string>()
+    const [severity, setSeverity] = useState<string>()
+    const [shriveling, setShriveling] = useState<string>()
+    const [stem, setStem] = useState<string>()
+    const [stem_cankers, setStemCankers] = useState<string>()
+    const [temp, setTemp] = useState<string>()
 
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault()
@@ -656,8 +657,9 @@ export function Casos() {
                         <option value="100">100%</option>
                     </select>
                 </div>
-                <div className="flex w-24 mt-4">
+                <div className="flex w-full mt-4 items-center justify-around">
                     <button type="submit" className="bg-gray-300 duration-500">Enviar</button>
+                    <Link className="flex items-center justify-center bg-gray-300 duration-500 w-36  rounded-md text-white py-3 hover:bg-gray-400 transition-all" to={"/candidatos"}>Próximo</Link>
                 </div>
             </form>
         </section>
