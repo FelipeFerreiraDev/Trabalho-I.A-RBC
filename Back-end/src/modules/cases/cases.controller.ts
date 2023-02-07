@@ -35,4 +35,9 @@ export class CasesController {
   async calcular(@Body() id: number) {
     return this.casesService.calc(id);
   }
+
+  @Post('/update')
+  async updateCase(@Body() data: Prisma.CasesUpdateInput) {
+    return this.casesService.updateCase(data);
+  }
 }
