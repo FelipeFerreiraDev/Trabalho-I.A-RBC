@@ -27,8 +27,8 @@ export class CasesController {
   }
 
   @Get(':id')
-  async findOne(@Body() id: number) {
-    return this.casesService.findOne(id);
+  async findUnique(@Param('id') id: number) {
+    return this.casesService.findUnique(id);
   }
 
   @Post('/calc/:id')
