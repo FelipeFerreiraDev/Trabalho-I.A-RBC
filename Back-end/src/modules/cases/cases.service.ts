@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { prisma, Prisma } from '@prisma/client';
+import { last } from 'rxjs';
 import { PrismaService } from 'src/services/prisma/prisma.service';
 
 @Injectable()
@@ -10,6 +11,23 @@ export class CasesService {
     await this.prisma.cases.create({ data });
 
     return data;
+  }
+
+  async updateCase(data: Prisma.CasesUpdateInput) {
+    const lastCase = await this.prisma.cases.findFirst({
+      orderBy: {
+        case: 'desc',
+      },
+    });
+
+    await this.prisma.cases.update({
+      where: {
+        case: lastCase.case,
+      },
+      data: {
+        desc_doenca: data.desc_doenca,
+      },
+    });
   }
 
   async findAll() {
@@ -64,10 +82,10 @@ export class CasesService {
     return data;
   }
 
-  async findOne(id: number) {
-    const data = await this.prisma.cases.findFirst({
+  async findUnique(id: number) {
+    const data = await this.prisma.cases.findUnique({
       where: {
-        case: id,
+        case: Number(id),
       },
       include: {
         area: true,
@@ -109,7 +127,6 @@ export class CasesService {
     });
     return data;
   }
-
   async calc(id: number) {
     const valorAreaDamagedMax = await this.prisma.area_damaged.findFirst({
       orderBy: {
