@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import api from "../../services";
 
 interface CasosProblema {
@@ -307,7 +309,7 @@ export function Candidatos() {
     const [similaridadeLocal, setSimilaridadeLocal] = useState<similaridadeLocal[]>();
     const [similaridadeGlobal, setSimilaridadeGlobal] = useState<number[]>([]);
     const [peso, setPeso] = useState<peso>();
-    console.log(cnfFloat);
+
     useEffect(() => {
         api.get('/cases/last').then(response => {
             setCasosProblema(response.data);
@@ -333,16 +335,32 @@ export function Candidatos() {
 
     useEffect(() => {
         similaridadeLocal?.map((item) => {
-            setSimilaridadeGlobal( x =>[...x,((item.area_damaged_sl * peso?.peso[0].peso) + (item.canker_lesion_sl * peso?.peso[1].peso) + (item.crop_sl * peso?.peso[2].peso) + (item.date_sl * peso?.peso[3].peso) + (item.external_decay_sl * peso?.peso[4].peso) + (item.fruiting_bodies_sl * peso?.peso[5].peso) + (item.fruit_pods_sl * peso?.peso[6].peso) + (item.fruits_sl * peso?.peso[7].peso) + (item.germination_sl * peso?.peso[8].peso) + (item.hail_sl * peso?.peso[9].peso) + (item.int_discolor_sl * peso?.peso[10].peso) + (item.leaf_malf_sl * peso?.peso[11].peso) + (item.leaf_mild_sl * peso?.peso[12].peso) + (item.leaf_shread_sl * peso?.peso[13].peso) + (item.leaf_spots_size_sl * peso?.peso[14].peso) + (item.leaf_spots_halo_sl * peso?.peso[15].peso) + (item.leaf_spots_marg_sl * peso?.peso[16].peso) + (item.leaves_sl * peso?.peso[17].peso) + (item.lodging_sl * peso?.peso[18].peso) + (item.mold_growth_sl * peso?.peso[19].peso) + (item.mycelium_sl * peso?.peso[20].peso) + (item.plant_growth_sl * peso?.peso[21].peso) + (item.plant_stand_sl * peso?.peso[22].peso) + (item.precip_sl * peso?.peso[23].peso) + (item.roots_sl * peso?.peso[24].peso) + (item.sclerotia_sl * peso?.peso[25].peso) + (item.seed_sl * peso?.peso[26].peso) + (item.seed_discolor_sl * peso?.peso[27].peso) + (item.seed_size_sl * peso?.peso[28].peso) + (item.seed_tmt_sl * peso?.peso[29].peso) + (item.severity_sl * peso?.peso[30].peso) + (item.shriveling_sl * peso?.peso[31].peso) + (item.stem_sl * peso?.peso[32].peso) + (item.stem_cankers_sl * peso?.peso[33].peso) + (item.temp_sl * peso?.peso[34].peso)) / 214]) 
+            setSimilaridadeGlobal(x => [...x, ((item.area_damaged_sl * peso?.peso[0].peso) + (item.canker_lesion_sl * peso?.peso[1].peso) + (item.crop_sl * peso?.peso[2].peso) + (item.date_sl * peso?.peso[3].peso) + (item.external_decay_sl * peso?.peso[4].peso) + (item.fruiting_bodies_sl * peso?.peso[5].peso) + (item.fruit_pods_sl * peso?.peso[6].peso) + (item.fruits_sl * peso?.peso[7].peso) + (item.germination_sl * peso?.peso[8].peso) + (item.hail_sl * peso?.peso[9].peso) + (item.int_discolor_sl * peso?.peso[10].peso) + (item.leaf_malf_sl * peso?.peso[11].peso) + (item.leaf_mild_sl * peso?.peso[12].peso) + (item.leaf_shread_sl * peso?.peso[13].peso) + (item.leaf_spots_size_sl * peso?.peso[14].peso) + (item.leaf_spots_halo_sl * peso?.peso[15].peso) + (item.leaf_spots_marg_sl * peso?.peso[16].peso) + (item.leaves_sl * peso?.peso[17].peso) + (item.lodging_sl * peso?.peso[18].peso) + (item.mold_growth_sl * peso?.peso[19].peso) + (item.mycelium_sl * peso?.peso[20].peso) + (item.plant_growth_sl * peso?.peso[21].peso) + (item.plant_stand_sl * peso?.peso[22].peso) + (item.precip_sl * peso?.peso[23].peso) + (item.roots_sl * peso?.peso[24].peso) + (item.sclerotia_sl * peso?.peso[25].peso) + (item.seed_sl * peso?.peso[26].peso) + (item.seed_discolor_sl * peso?.peso[27].peso) + (item.seed_size_sl * peso?.peso[28].peso) + (item.seed_tmt_sl * peso?.peso[29].peso) + (item.severity_sl * peso?.peso[30].peso) + (item.shriveling_sl * peso?.peso[31].peso) + (item.stem_sl * peso?.peso[32].peso) + (item.stem_cankers_sl * peso?.peso[33].peso) + (item.temp_sl * peso?.peso[34].peso)) / 214])
             //console.log(((item.area_damaged_sl * peso?.peso[0].peso) + (item.canker_lesion_sl * peso?.peso[1].peso) + (item.crop_sl * peso?.peso[2].peso) + (item.date_sl * peso?.peso[3].peso) + (item.external_decay_sl * peso?.peso[4].peso) + (item.fruiting_bodies_sl * peso?.peso[5].peso) + (item.fruit_pods_sl * peso?.peso[6].peso) + (item.fruits_sl * peso?.peso[7].peso) + (item.germination_sl * peso?.peso[8].peso) + (item.hail_sl * peso?.peso[9].peso) + (item.int_discolor_sl * peso?.peso[10].peso) + (item.leaf_malf_sl * peso?.peso[11].peso) + (item.leaf_mild_sl * peso?.peso[12].peso) + (item.leaf_shread_sl * peso?.peso[13].peso) + (item.leaf_spots_size_sl * peso?.peso[14].peso) + (item.leaf_spots_halo_sl * peso?.peso[15].peso) + (item.leaf_spots_marg_sl * peso?.peso[16].peso) + (item.leaves_sl * peso?.peso[17].peso) + (item.lodging_sl * peso?.peso[18].peso) + (item.mold_growth_sl * peso?.peso[19].peso) + (item.mycelium_sl * peso?.peso[20].peso) + (item.plant_growth_sl * peso?.peso[21].peso) + (item.plant_stand_sl * peso?.peso[22].peso) + (item.precip_sl * peso?.peso[23].peso) + (item.roots_sl * peso?.peso[24].peso) + (item.sclerotia_sl * peso?.peso[25].peso) + (item.seed_sl * peso?.peso[26].peso) + (item.seed_discolor_sl * peso?.peso[27].peso) + (item.seed_size_sl * peso?.peso[28].peso) + (item.seed_tmt_sl * peso?.peso[29].peso) + (item.severity_sl * peso?.peso[30].peso) + (item.shriveling_sl * peso?.peso[31].peso) + (item.stem_sl * peso?.peso[32].peso) + (item.stem_cankers_sl * peso?.peso[33].peso) + (item.temp_sl * peso?.peso[34].peso)) / 214)
         }
         )
     }, [similaridadeLocal, peso])
 
 
+    const [desc_doenca, setDesc_doenca] = useState<string>()
+    const handleSubmit = async (e: { preventDefault: () => void; }) => {
+        e.preventDefault()
+        const data = {
+            desc_doenca,
+        }
+        try {
+            const response = await api.post('/cases/update', data)
+            toast.success("Selecionado com sucesso!")
+        } catch (error) {
+            toast.error("Erro ao selecionar caso!")
+        }
+    }
+
     return (
+
         <section className="w-full grid grid-cols-3 justify-items-center bg-gray-150">
-            <div className="h-screen flex flex-col col-span-2 w-full">
+
+            <div className="h-2/4 flex flex-col col-span-2 w-full">
                 <h2 className="mb-0">Caso problema</h2>
                 <h4>CASO: </h4>
                 <div className="bg-[#f5f5f5] rounded-md shadow-2xl">
@@ -494,50 +512,70 @@ export function Candidatos() {
                             <label>&#129046;</label>
                             <label className="flex w-2/4 justify-end">{casosProblema?.temp}</label>
                         </div>
+
                     </div>
+
+                </div>
+                <div className="h-screen flex justify-end">
+                    <Link className="flex items-center justify-center bg-gray-300 duration-500 w-36 h-14 mt-4  rounded-md text-white py-3 hover:bg-gray-400 transition-all" to='/resultados'>Próximo</Link>
                 </div>
             </div>
 
 
 
-            <div className="h-screen w-11/12">
-                <h2 >Lista de Casos Candidatos</h2>
-                <h4>CNF: </h4>
-                <table className="w-full bg-[#f5f5f5] rounded-md">
-                    <thead>
-                        <tr>
-                            <th>Caso</th>
-                            <th>Descrição</th>
-                            <th>CNF</th>
-                            <th>Selecionar</th>
-                        </tr>
-                    </thead>
-                    {casoSelecionado?.map((caso) => {
-                        if (cnfFloat <= similaridadeGlobal[caso.case] * 100) {
-                            return (
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            {caso.case}
-                                        </td>
-                                        <td>
-                                            <p>{caso.desc_doenca}</p>
-                                        </td>
-                                        <td>
-                                            <p>{similaridadeGlobal[caso.case]*100}%</p>
-                                        </td>
-                                        <td>
-                                            <button type="submit" className="w-24"> Selecionar </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            )
+
+
+
+            <form className="h-screen w-11/12" onSubmit={handleSubmit} >
+
+                <div className="h-full w-full">
+                    <h2 >Lista de Casos Candidatos</h2>
+                    <h4>CNF: </h4>
+                    <table className="w-full bg-[#f5f5f5] rounded-md">
+                        <thead>
+                            <tr>
+                                <th>Caso</th>
+                                <th>Descrição</th>
+                                <th>CNF</th>
+                                <th>Selecionar</th>
+                            </tr>
+                        </thead>
+                        {casoSelecionado?.map((caso) => {
+                            if (cnfFloat <= similaridadeGlobal[caso.case] * 100) {
+                                return (
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                {caso.case}
+
+                                            </td>
+
+                                            <td>
+                                                <p>{caso.desc_doenca}</p>
+                                            </td>
+                                            <td>
+                                                <p>{similaridadeGlobal[caso.case] * 100}%</p>
+                                            </td>
+                                            <td>
+                                                <button onClick={() => { setDesc_doenca(caso.desc_doenca), localStorage.setItem('caseSelected', caso.case.toString()) }} type="submit" className="w-24"> Selecionar </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                )
+                            }
+                        })
                         }
-                    })
-                    }
-                </table>
-            </div>
+                    </table>
+
+
+                </div>
+            </form>
+            <ToastContainer />
         </section>
 
+
+
     )
+
+
 }
