@@ -226,7 +226,7 @@ interface CasosProblema {
 }
 
 export function Casos() {
-    const desc_doenca = "diaporthe-stem-canker"
+    const desc_doenca = ""
     const [cnf, setCnf] = useState<string>('')
     localStorage.setItem('cnf', cnf)
     const [fruiting_bodies, setFruitingBodies] = useState<string>()
@@ -657,7 +657,7 @@ export function Casos() {
                         <option value="100">100%</option>
                     </select>
                 </div>
-                <div className="flex w-full mt-4 items-center justify-around">
+                <div className="flex w-full mt-4 items-center start gap-4">
                     <button type="submit" className="bg-gray-300 duration-500">Enviar</button>
                     <Link className="flex items-center justify-center bg-gray-300 duration-500 w-36  rounded-md text-white py-3 hover:bg-gray-400 transition-all" to={"/candidatos"}>Próximo</Link>
                 </div>
