@@ -48,8 +48,6 @@ export function Resultado() {
     const [casosProblema, setCasosProblema] = useState<CasosProblema>();
     const [resultado, setResultado] = useState<CasosProblema>();
 
-    console.log(resultado);
-
     useEffect(() => {
         api.get('/cases/last').then(response => {
             setCasosProblema(response.data);

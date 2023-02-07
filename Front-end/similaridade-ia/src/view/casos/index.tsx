@@ -306,7 +306,6 @@ export function Casos() {
             stem_cankers,
             temp
         }
-        console.log(localStorage.getItem('cnf'))
         try {
             const response = await api.post('/cases', data)
             toast.success("Cadastrado com sucesso!")
